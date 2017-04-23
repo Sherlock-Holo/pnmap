@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 
 import socket
-from threading import Thread
 from concurrent.futures import ThreadPoolExecutor
 import argparse
 import re
 
-socket.setdefaulttimeout(2)
+socket.setdefaulttimeout(1)
 
 # core
 def scan(host, port):
@@ -39,7 +38,7 @@ if args.port:
             future = pool.submit(scan, args.host, p)
 
     else:
-        future = pool.submit(scan, args.host, args.port)
+        future = pool.submit(scan, args.host, int(args.port))
 
 elif args.all:
     print('Start full scan for {} ...'.format(args.host))
