@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import socket
 from concurrent.futures import ThreadPoolExecutor
+import socket
 import argparse
 import re
 
@@ -17,10 +17,11 @@ def scan(host, port):
             pass
 
 # Argument
-parser = argparse.ArgumentParser(description = 'a python version nmap')
-parser.add_argument('host', help = 'scan the host')
-parser.add_argument('-a', '--all', action = 'store_true', help = "scan all port (WARNING: It will use a lot of time!)")
-parser.add_argument('-p', '--port', help = 'scan the port or port range')
+parser = argparse.ArgumentParser(description='a python version nmap')
+parser.add_argument('host', help='scan the host')
+parser.add_argument('-a', '--all', action='store_true',
+                    help="scan all port (WARNING: It will use a lot of time!)")
+parser.add_argument('-p', '--port', help='scan the port or port range')
 
 args = parser.parse_args()
 
